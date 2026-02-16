@@ -3,23 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Form</title>
+    <title>Eclipse Body Studios</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Booking Form</h1>
-    <form>
-        <label for="package">Select Your Package:</label>
-        <select id="package" name="package" required>
-            <option value="basic">Basic Package</option>
-            <option value="premium">Premium Package</option>
-            <option value="vip">VIP Package</option>
-        </select>
-        <br>
-        <label for="goals">Goals/Preferences:</label>
-        <textarea id="goals" name="goals" rows="4" cols="50" placeholder="Enter your goals/preferences here..." required></textarea>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    <p>Contact will be made separately to arrange specific training dates.</p>
+    <header>
+        <h1>Eclipse Body Studios</h1>
+    </header>
+    <main>
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-card">
+                <h3>Service 1</h3>
+                <p>Description of Service 1.</p>
+            </div>
+            <div class="service-card">
+                <h3>Service 2</h3>
+                <p>Description of Service 2.</p>
+            </div>
+            <!-- More service cards as needed -->
+        </section>
+        <section class="booking-form">
+            <h2>Book Your Appointment</h2>
+            <form id="booking" method="POST" action="/submit-booking">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="package">Package Selection:</label>
+                <select id="package" name="package" required>
+                    <option value="package1">Package 1</option>
+                    <option value="package2">Package 2</option>
+                    <!-- Additional packages as needed -->
+                </select>
+                <label for="goals">Goals/Preferences:</label>
+                <textarea id="goals" name="goals"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section class="payment">
+            <h2>Payment</h2>
+            <!-- Stripe payment integration goes here -->
+            <form action="/charge" method="post">
+                <input type="hidden" name="amount" value="1000">
+                <button type="submit">Pay with Stripe</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Eclipse Body Studios</p>
+    </footer>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js"></script>
 </body>
 </html>
